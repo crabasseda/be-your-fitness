@@ -1,5 +1,6 @@
 import {
   AngularNodeAppEngine,
+  CommonEngine,
   createNodeRequestHandler,
   isMainModule,
   writeResponseToNodeResponse,
@@ -11,6 +12,15 @@ const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
+
+const commonEngine = new CommonEngine();
+
+export async function netlifyCommonEngineHandler(
+  request: Request,
+  context: any
+): Promise<Response> {
+  return await render(commonEngine);
+}
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -32,7 +42,7 @@ app.use(
     maxAge: '1y',
     index: false,
     redirect: false,
-  }),
+  })
 );
 
 /**
@@ -41,9 +51,7 @@ app.use(
 app.use((req, res, next) => {
   angularApp
     .handle(req)
-    .then((response) =>
-      response ? writeResponseToNodeResponse(response, res) : next(),
-    )
+    .then((response) => (response ? writeResponseToNodeResponse(response, res) : next()))
     .catch(next);
 });
 
@@ -66,3 +74,6 @@ if (isMainModule(import.meta.url) || process.env['pm_id']) {
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
 export const reqHandler = createNodeRequestHandler(app);
+function render(commonEngine: CommonEngine): Response | PromiseLike<Response> {
+  throw new Error('Function not implemented.');
+}
