@@ -1,12 +1,24 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject, signal } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterModule],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('be-yor-fitness');
+  protected readonly title = signal('be-your-fitness');
+
+  users: string[] = [];
+
+  private _userService = inject(UserService);
+
+  ngOnInit() {
+    console.log('ngoninit');
+    this._userService.getUsers().subscribe((data) => {
+      this.users = data;
+      console.log(data);
+    });
+  }
 }
