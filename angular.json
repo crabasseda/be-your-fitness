@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "be-yor-fitness": {
+    "be-your-fitness": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -48,7 +48,8 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "ngsw-config.json"
             },
             "development": {
               "optimization": false,
@@ -62,10 +63,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "be-yor-fitness:build:production"
+              "buildTarget": "be-your-fitness:build:production"
             },
             "development": {
-              "buildTarget": "be-yor-fitness:build:development"
+              "buildTarget": "be-your-fitness:build:development"
             }
           },
           "defaultConfiguration": "development"

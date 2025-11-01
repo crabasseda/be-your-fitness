@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:be-yor-fitness": "node dist/be-yor-fitness/server/server.mjs"
+    "serve:ssr:be-your-fitness": "node dist/be-your-fitness/server/server.mjs"
   },
   "prettier": {
     "printWidth": 100,
@@ -30,6 +30,7 @@
     "@angular/platform-browser": "^20.3.0",
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
+    "@angular/service-worker": "^20.3.0",
     "@angular/ssr": "^20.3.7",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
