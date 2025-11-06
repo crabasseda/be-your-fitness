@@ -1,28 +1,33 @@
-import { computed, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable, signal } from '@angular/core';
+import { catchError, firstValueFrom, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly USER_KEY = 'user';
+  private _http = inject(HttpClient);
 
-  private isBrowser(): boolean {
-    return typeof window !== 'undefined' && !!window.localStorage;
-  }
+  public isLoggedIn = signal<boolean>(false);
 
-  public isLoggedIn = computed(() => {
-    if (!this.isBrowser()) return false;
-    return !!localStorage.getItem(this.USER_KEY);
-  });
+  async login(username: string, password: string): Promise<void> {
+    try {
+      const res: any = await firstValueFrom(
+        this._http.post('http://localhost:3000/api/auth/login', { username, password }).pipe(
+          catchError((err) => {
+            return throwError(() => new Error('Credenciales incorrectas'));
+          }),
+        ),
+      );
 
-  login(username: string, password: string): boolean {
-    if (username === 'admin' && password === '1234') {
-      localStorage.setItem(this.USER_KEY, username);
-      return true;
+      localStorage.setItem('token', res.token);
+      this.isLoggedIn.set(true);
+    } catch (err) {
+      throw err;
     }
-    return false;
   }
-
   logout() {
-    localStorage.removeItem(this.USER_KEY);
+    this.isLoggedIn.set(false);
+    localStorage.removeItem('token');
   }
 
   getUser(): string | null {

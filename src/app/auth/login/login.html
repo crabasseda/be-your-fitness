@@ -21,6 +21,10 @@
         <a (click)="onForgotPassword()">¿Olvidaste tu contraseña?</a>
       </div>
 
+      @if (loginForm.hasError('invalidCredentials')) {
+        <mat-error class="invalid-credentials"> Usuario o contraseña incorrectos. </mat-error>
+      }
+
       <div class="button-group">
         <button mat-flat-button color="primary" type="submit">Acceder</button>
         <button mat-stroked-button color="accent" routerLink="/register">Registrarse</button>

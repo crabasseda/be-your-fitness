@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
+import { UrlKey } from '@models/url';
 import { AuthService } from 'src/app/core/auth/auth.service';
 
 @Component({
@@ -23,18 +24,19 @@ export class Login {
   }
 
   async onLogin() {
-    console.log('login');
     if (this.loginForm.invalid) {
       this.loginForm.markAllAsTouched();
       return;
     }
 
+    const user = this.loginForm.value;
+
     try {
-      const user = this.loginForm.value;
       await this._authService.login(user.username, user.password);
-      this._router.navigate(['/home']);
+      this._router.navigateByUrl(UrlKey.Home);
     } catch (error) {
-      this.loginForm.setErrors({});
+      this.loginForm.reset();
+      this.loginForm.setErrors({ invalidCredentials: true });
     }
   }
 
