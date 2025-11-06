@@ -1,0 +1,35 @@
+.byf-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  .logo {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .logout-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .material-icons {
+      color: #333;
+      font-size: 24px;
+    }
+
+    &:hover .material-icons {
+      color: #007bff;
+    }
+  }
+}

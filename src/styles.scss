@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use './styles/main' as *;
+
+@include mat.core();
+
+html {
+  @include mat.all-component-themes($my-byf-theme);
+  font-family: $font-family-base;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}

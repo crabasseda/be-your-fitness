@@ -1,1 +1,11 @@
-<router-outlet />
+@if (showLayout) {
+  <byf-header />
+
+  <main class="byf-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <byf-footer />
+} @else {
+  <router-outlet></router-outlet>
+}

@@ -1,0 +1,41 @@
+@use '@angular/material' as mat;
+
+$orange-primary: #ec6c1e;
+$orange-secondary: #f6a100;
+$blue-primary: #31a1dd;
+$blue-secondary: #112b76;
+
+$color-success: #2b9f60;
+$color-danger: #e53935;
+
+$color-light: #f8f9fa;
+$color-dark: #212529;
+$grey-primary: #666;
+
+$font-family-base: 'Poppins', sans-serif;
+$font-size-base: 16px;
+$font-size-sm: 14px;
+$font-size-lg: 20px;
+$spacer: 1rem;
+$spacer-sm: 0.5rem;
+$spacer-lg: 2rem;
+$border-radius: 8px;
+
+$orange-palette: mat.$orange-palette;
+$blue-palette: mat.$cyan-palette;
+
+:root {
+  --orange-primary: #{$orange-primary};
+  --orange-secondary: #{$orange-secondary};
+  --blue-primary: #{$blue-primary};
+  --blue-secondary: #{$blue-secondary};
+
+  --color-success: #{$color-success};
+  --color-danger: #{$color-danger};
+  --color-light: #{$color-light};
+  --color-dark: #{$color-dark};
+  --grey-primary: #{$grey-primary};
+
+  --font-base: #{$font-family-base};
+  --border-radius: #{$border-radius};
+}

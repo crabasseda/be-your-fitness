@@ -17,7 +17,8 @@
     "module": "preserve",
     "paths": {
       "@models/*": ["src/app/models/*"],
-      "@features/*": ["src/app/features/*"]
+      "@features/*": ["src/app/features/*"],
+      "@auth/*": ["src/app/auth/*"]
     }
   },
   "angularCompilerOptions": {

@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@use 'variables' as vars;
+
+$my-byf-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: vars.$orange-palette,
+      tertiary: vars.$blue-palette,
+    ),
+    typography: (
+      brand-family: vars.$font-family-base,
+      plain-family: vars.$font-family-base,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
