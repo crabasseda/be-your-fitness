@@ -3,7 +3,9 @@ import { effect, inject, Injectable, signal } from '@angular/core';
 import { catchError, map, of } from 'rxjs';
 import {
   Exercise,
+  ExerciseDetailResponse,
   ExercisesResponse,
+  ExtendedExercise,
   FiltersDataResponse,
   FiltersResponse,
 } from '../models/exercises.interface';
@@ -23,6 +25,8 @@ export class ExercisesService {
   selectedEquipment = signal<string | null>(null);
   selectedBodyPart = signal<string | null>(null);
 
+  selectedExercise = signal<ExtendedExercise | null>(null);
+
   constructor() {
     effect(() => {
       const equipment = this.selectedEquipment();
@@ -32,7 +36,7 @@ export class ExercisesService {
     });
   }
   getExercises() {
-    let params = new HttpParams().set('offset', '0').set('limit', '100');
+    let params = new HttpParams().set('offset', '0').set('limit', '25');
     const equipment = this.selectedEquipment();
     if (equipment) {
       params = params.set('equipments', equipment);
@@ -47,6 +51,16 @@ export class ExercisesService {
       .pipe(map((response) => response.data))
       .subscribe((data) => {
         this.exerciseList.set(data);
+      });
+  }
+
+  getExerciseById(exerciseId: string) {
+    this._http
+      .get<ExerciseDetailResponse>(this.url + '/exercises/' + exerciseId)
+      .pipe(map((response) => response.data))
+      .subscribe((data) => {
+        this.selectedExercise.set(data);
+        console.log(data);
       });
   }
 

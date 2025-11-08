@@ -25,6 +25,11 @@
       [subtitle]="exercise.exerciseType"
       [chips]="exercise.equipments"
       [image]="exercise.imageUrl"
+      (clicked)="onCardClick(exercise)"
     ></byf-card>
   }
 </div>
+
+@if (isModalOpen()) {
+  <byf-exercise-detail-modal [exercise]="selectedExercise()!" (close)="onCloseDetail()" />
+}

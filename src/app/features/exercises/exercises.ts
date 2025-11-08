@@ -3,12 +3,13 @@ import { Card } from 'src/app/shared/card/card';
 import { FilterDropdown } from 'src/app/shared/filter-dropdown/filter-dropdown';
 import { FilterOption } from 'src/app/shared/filter-dropdown/models/filter-dropdown.interface';
 import { Searchbar } from 'src/app/shared/searchbar/searchbar';
+import { ExerciseDetailModal } from './components/exercise-detail-modal/exercise-detail-modal';
 import { Exercise } from './models/exercises.interface';
 import { ExercisesService } from './services/exercises.service';
 
 @Component({
   selector: 'app-exercises',
-  imports: [Searchbar, Card, FilterDropdown],
+  imports: [Searchbar, Card, FilterDropdown, ExerciseDetailModal],
   templateUrl: './exercises.html',
   styleUrl: './exercises.scss',
 })
@@ -76,5 +77,18 @@ export class Exercises {
 
   onBodyPartChange(value: string | null) {
     this.selectedBodyPart.set(value);
+  }
+
+  isModalOpen = signal<boolean>(false);
+  selectedExercise = this._exercisesService.selectedExercise;
+
+  onCardClick(exercise: Exercise) {
+    console.log(exercise);
+    this._exercisesService.getExerciseById(exercise.exerciseId);
+    this.isModalOpen.set(true);
+  }
+
+  onCloseDetail() {
+    this.isModalOpen.set(false);
   }
 }
