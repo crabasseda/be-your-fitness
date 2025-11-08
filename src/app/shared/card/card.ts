@@ -1,10 +1,10 @@
 import { Component, input, output } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatChipsModule } from '@angular/material/chips';
+import { Chip } from '../chip/chip';
+import { ChipType } from '../chip/models/chip.enum';
 
 @Component({
   selector: 'byf-card',
-  imports: [MatCardModule, MatChipsModule],
+  imports: [Chip],
   templateUrl: './card.html',
   styleUrl: './card.scss',
 })
@@ -15,6 +15,8 @@ export class Card {
   chips = input<string[]>();
 
   clicked = output<void>();
+
+  ChipType = ChipType;
 
   onClick() {
     this.clicked.emit();

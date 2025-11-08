@@ -39,7 +39,7 @@
         </h3>
         <div class="chips-container">
           @for (equipment of exercise().equipments; track equipment) {
-            <span class="chip chip-equipment">{{ equipment }}</span>
+            <byf-chip [text]="equipment" [chipType]="ChipType.Blue"></byf-chip>
           }
         </div>
       </section>
@@ -61,7 +61,7 @@
         </h3>
         <div class="chips-container">
           @for (bodyPart of exercise().bodyParts; track bodyPart) {
-            <span class="chip chip-bodypart">{{ bodyPart }}</span>
+            <byf-chip [text]="bodyPart" [chipType]="ChipType.Pink"></byf-chip>
           }
         </div>
       </section>
