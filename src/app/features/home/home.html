@@ -1,2 +1,36 @@
-<p>home works!</p>
-<mat-slide-toggle>Toggle me!</mat-slide-toggle>
+<h1>Hola {{ user!.username }}</h1>
+<h2 class="motivation">{{ motivationalMessage }}</h2>
+
+<section class="start-workout-btn">
+  <button mat-flat-button color="primary" type="button" aria-label="Start workout">
+    <mat-icon>play_circle</mat-icon>
+    Empezar entreno
+  </button>
+</section>
+
+<h3>Próximo Workout</h3>
+<mat-card class="next-workout">{{ nextWorkoutText }}</mat-card>
+
+<h3>Resumen semanal</h3>
+<mat-card class="chart-card">
+  <!-- ng2-charts -->
+  <div class="chart-container">
+    <!-- <canvas baseChart
+[data]="barChartData"
+[type]="barChartType"
+[options]="barChartOptions">
+</canvas> -->
+  </div>
+</mat-card>
+
+<mat-divider></mat-divider>
+
+<mat-card class="coach-card">
+  <div class="coach-left">
+    <!-- <img class="coach-avatar" [src]="coach.avatarUrl" alt="Coach avatar" /> -->
+  </div>
+  <div class="coach-right">
+    <div class="coach-name">{{ 'Pedro' }}</div>
+    <div class="coach-message">{{ 'test' }}</div>
+  </div>
+</mat-card>

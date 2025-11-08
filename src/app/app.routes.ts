@@ -18,6 +18,10 @@ export const routes: Routes = [
     loadComponent: () => import('@features/home/home').then((m) => m.Home),
   },
   {
+    path: UrlKey.Exercises,
+    loadComponent: () => import('@features/exercises/exercises').then((m) => m.Exercises),
+  },
+  {
     path: '**',
     redirectTo: UrlKey.Login,
   },

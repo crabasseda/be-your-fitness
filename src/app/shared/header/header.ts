@@ -19,4 +19,9 @@ export class Header {
     this._authService.logout();
     this._router.navigateByUrl(UrlKey.Login);
   }
+
+  goHomePage() {
+    console.log('hola');
+    this._router.navigateByUrl(UrlKey.Home);
+  }
 }

@@ -1,0 +1,17 @@
+.full-width {
+  width: 100%;
+}
+
+.cancel-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .material-icons {
+    color: var(--grey-primary);
+    font-size: 24px;
+  }
+}

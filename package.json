@@ -7,7 +7,6 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:be-your-fitness": "node dist/be-your-fitness/server/server.mjs",
     "lint:css": "stylelint '**/*.scss'"
   },
   "prettier": {
@@ -34,8 +33,8 @@
     "@angular/platform-server": "^20.3.0",
     "@angular/router": "^20.3.0",
     "@angular/service-worker": "^20.3.0",
-    "@angular/ssr": "^20.3.7",
     "express": "^5.1.0",
+    "ng2-charts": "^8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

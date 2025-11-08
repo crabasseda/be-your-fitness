@@ -1,0 +1,110 @@
+.filter-dropdown-container {
+  width: 100%;
+}
+
+.filter-field {
+  width: 100%;
+
+  ::ng-deep {
+    .mat-mdc-text-field-wrapper {
+      background: white;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .mat-mdc-form-field-focus-overlay {
+      background-color: transparent;
+    }
+
+    // Label
+    .mat-mdc-floating-label {
+      color: var(--grey-primary);
+      font-weight: 500;
+    }
+
+    .mdc-floating-label--float-above {
+      color: var(--orange-primary);
+    }
+
+    // Outline
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: rgba(0, 0, 0, 0.12);
+      transition: border-color 0.3s ease;
+    }
+
+    // Hover
+    &:hover {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: rgba(236, 108, 30, 0.4);
+      }
+    }
+
+    // Focused
+    &.mat-focused {
+      .mdc-notched-outline__leading,
+      .mdc-notched-outline__notch,
+      .mdc-notched-outline__trailing {
+        border-color: var(--orange-primary);
+        border-width: 2px;
+      }
+    }
+
+    // Select value
+    .mat-mdc-select-value {
+      color: var(--color-dark);
+      font-weight: 500;
+    }
+
+    .mat-mdc-select-placeholder {
+      color: var(--grey-primary);
+    }
+
+    // Arrow icon
+    .mat-mdc-select-arrow {
+      color: var(--orange-primary);
+    }
+  }
+}
+
+.label-icon {
+  font-size: 18px;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+  margin-right: 4px;
+  color: var(--orange-primary);
+}
+
+// Panel styles (dropdown)
+::ng-deep .mat-mdc-select-panel {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  margin-top: 8px;
+
+  .mat-mdc-option {
+    min-height: 48px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(236, 108, 30, 0.08);
+    }
+
+    &.mdc-list-item--selected {
+      background-color: rgba(236, 108, 30, 0.12);
+      color: var(--orange-primary);
+
+      .mdc-list-item__primary-text {
+        color: var(--orange-primary);
+      }
+    }
+
+    .mdc-list-item__primary-text {
+      color: var(--color-dark);
+    }
+  }
+}
